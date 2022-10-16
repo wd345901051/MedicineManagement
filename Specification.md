@@ -91,7 +91,7 @@ password：密码
 
 ##### 响应消息
 
-```http
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
@@ -129,7 +129,7 @@ ret 为1表示登录失败， msg字段描述登录失败的原因
 
 ##### 请求消息
 
-```py
+```http request
 POST  /mgr/medicines  HTTP/1.1
 Content-Type:   application/json
 ```
@@ -165,7 +165,7 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
 
 ##### 响应消息
 
-```py
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
@@ -206,7 +206,7 @@ ret 为1表示失败， msg字段描述添加失败的原因
 
 ##### 请求消息
 
-```py
+```http request
 POST  /mgr/medicines  HTTP/1.1
 Content-Type:   application/json
 ```
@@ -245,7 +245,7 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
 
 ##### 响应消息
 
-```py
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
@@ -281,7 +281,7 @@ ret 为1表示失败， msg字段描述添加失败的原因
 
 ##### 请求消息
 
-```py
+```http request
 DELETE  /api/mgr/medicines  HTTP/1.1
 Content-Type:   application/json
 ```
@@ -311,7 +311,7 @@ http 请求消息 body 携带要删除药品的id
 
 ##### 响应消息
 
-```py
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
@@ -439,7 +439,7 @@ total 表示药品的数量
 
 ##### 请求消息
 
-```py
+```http request
 GET  /mgr/customers  HTTP/1.1
 ```
 
@@ -465,7 +465,7 @@ http 请求消息 url 中 需要携带如下参数，
 
 ##### 响应消息
 
-```py
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
@@ -525,7 +525,7 @@ total 表示系统中所有用户的数量
 
 ##### 请求消息
 
-```py
+```http request
 GET  /mgr/orders  HTTP/1.1
 ```
 
@@ -551,7 +551,7 @@ http 请求消息 url 中 需要携带如下参数，
 
 ##### 响应消息
 
-```py
+```http request
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
