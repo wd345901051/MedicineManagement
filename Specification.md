@@ -145,12 +145,12 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
         "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
         "medicine_sn": "TY20180001",
         "company_name": "杭州贝因美母婴营养品有限公司",
-        "medicine_valid_date":'xxxx-xx-xx',
+        "medicine_valid_date":"xxxx-xx-xx",
         "medicine_price": 218.00,
         "medicine_stock": 99,
         "medicine_specification": "400g",
         "medicine_type":1,
-        "medicine_material":'水解乳清蛋白粉'  
+        "medicine_material":"水解乳清蛋白粉"  
     }
 }
 ```
@@ -223,12 +223,12 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
         "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
         "medicine_sn": "TY20180001",
         "company_name": "杭州贝因美母婴营养品有限公司",
-        "medicine_valid_date":'xxxx-xx-xx',
+        "medicine_valid_date":"xxxx-xx-xx",
         "medicine_price": 218.00,
         "medicine_stock": 99,
         "medicine_specification": "400g",
         "medicine_type":1,
-        "medicine_material":'水解乳清蛋白粉'  
+        "medicine_material":"水解乳清蛋白粉"  
     }
 }
 ```
@@ -395,12 +395,12 @@ http 响应消息体中， 数据以json格式存储，
             "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
             "medicine_sn": "TY20180001",
             "company_name": "杭州贝因美母婴营养品有限公司",
-            "medicine_valid_date":'xxxx-xx-xx',
+            "medicine_valid_date":"xxxx-xx-xx",
             "medicine_price": 218.00,
             "medicine_stock": 99,
             "medicine_specification": "400g",
             "medicine_type":1,
-            "medicine_material":'水解乳清蛋白粉' 
+            "medicine_material":"水解乳清蛋白粉" 
         }
      ],
      "total":1
@@ -422,12 +422,12 @@ total 表示药品的数量
     "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
     "medicine_sn": "TY20180001",
     "company_name": "杭州贝因美母婴营养品有限公司",
-    "medicine_valid_date":'xxxx-xx-xx',
+    "medicine_valid_date":"xxxx-xx-xx",
     "medicine_price": 218.00,
     "medicine_stock": 99,
     "medicine_specification": "400g",
     "medicine_type":1,
-    "medicine_material":'水解乳清蛋白粉' 
+    "medicine_material":"水解乳清蛋白粉" 
 } 
 ```
 
@@ -495,7 +495,7 @@ http 响应消息 body 中， 数据以json格式存储，
             "identity":"821721******5"
         }
     ] , 
-    'total': 2             
+    "total": 2             
 }
 ```
 
@@ -569,13 +569,13 @@ http 响应消息 body 中， 数据以json格式存储，
         {
             "name":"张三",
             "created_time":"2022-10-16 15:04:05",
-            "medicinelist":"[
+            "medicinelist":[
             {"id":1,"name":"贝因美特殊医学用途婴儿无乳糖配方食品","amount":1,"price":218.00},
         	{"id":2,"name":"易关舒","amount":1,"price":12.34}
-            ]"
+            ]
         }
     ] , 
-    'total': 2             
+    "total": 2             
 }
 ```
 
@@ -591,10 +591,10 @@ total 表示系统中所有订单的数量
 {
     "name":"张三",
     "created_time":"2022-10-16 15:04:05",
-    "medicinelist":"[
+    "medicinelist":[
         {"id":1,"name":"贝因美特殊医学用途婴儿无乳糖配方食品","amount":1,"price":218.00},
         {"id":2,"name":"易关舒","amount":1,"price":12.34}
-    ]"
+    ]
 }
 ```
 
