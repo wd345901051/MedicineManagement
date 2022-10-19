@@ -73,7 +73,7 @@
 ##### 请求消息
 
 ```http
-POST  /mgr/login  HTTP/1.1
+POST  /login  HTTP/1.1
 Content-Type:   application/x-www-form-urlencoded
 ```
 
@@ -399,7 +399,7 @@ total 表示药品的数量
 ##### 请求消息
 
 ```http
-GET  /mgr/customers  HTTP/1.1
+GET  /mgr/listuser  HTTP/1.1
 ```
 
 ##### 请求参数
@@ -448,7 +448,7 @@ http 响应消息 body 中， 数据以json格式存储，
             "identity":"821721******5"
         }
     ] , 
-    "total": 2       
+    "total": 2     
 }
 ```
 
