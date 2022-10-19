@@ -29,19 +29,19 @@
 
 ### medicine_basic
 
-| 字段                   | 类型     | 大小 | 备注                                                               |
-| ---------------------- | -------- | ---- | ------------------------------------------------------------------ |
-| id                     | bigint   |      | id                                                                 |
-| medicine_sn            | char     | 13   | 药品条形码                                                         |
-| medicine_name          | varchar  | 100  | 药品名称                                                           |
-| company_name           | varchar  | 50   | 供应商                                                             |
-| medicine_valid_date    | datetime |      | 保质期                                                             |
-| medicine_price         | decimal  | (,2) | 价格                                                               |
-| medicine_stock         | int      |      | 库存                                                               |
-| medicine_specification | varchar  | 50   | 规格                                                               |
-| medicine_type          | tinyint  | 1    | 商品分类 0 全营养配方食品 1 特定全营养配方食品  2 非全营养配方食品 |
-| medicine_apply         | varchar  | 50   | 适用人群                                                           |
-| medicine_material      | varchar  | 600  | 产品配方                                                           |
+| 字段                   | 类型    | 大小 | 备注                                                               |
+| ---------------------- | ------- | ---- | ------------------------------------------------------------------ |
+| id                     | bigint  |      | id                                                                 |
+| medicine_sn            | char    | 13   | 药品条形码                                                         |
+| medicine_name          | varchar | 100  | 药品名称                                                           |
+| company_name           | varchar | 50   | 供应商                                                             |
+| medicine_valid_date    | date    |      | 保质期                                                             |
+| medicine_price         | decimal | (,2) | 价格                                                               |
+| medicine_stock         | int     |      | 库存                                                               |
+| medicine_specification | varchar | 50   | 规格                                                               |
+| medicine_type          | tinyint | 1    | 商品分类 0 全营养配方食品 1 特定全营养配方食品  2 非全营养配方食品 |
+| medicine_apply         | varchar | 50   | 适用人群                                                           |
+| medicine_material      | varchar | 600  | 产品配方                                                           |
 
 ### order_medicine
 
@@ -136,18 +136,15 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
 
 ```json
 {
-    "action":"add_medicine",
-    "data":{
-        "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
-        "medicine_sn": "TY20180001",
-        "company_name": "杭州贝因美母婴营养品有限公司",
-        "medicine_valid_date":"xxxx-xx-xx",
-        "medicine_price": 218.00,
-        "medicine_stock": 99,
-        "medicine_specification": "400g",
-        "medicine_type":1,
-        "medicine_material":"水解乳清蛋白粉"  
-    }
+    "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
+    "medicine_sn": "TY20180001",
+    "company_name": "杭州贝因美母婴营养品有限公司",
+    "medicine_valid_date":"xxxx-xx-xx",
+    "medicine_price": 218.00,
+    "medicine_stock": 99,
+    "medicine_specification": "400g",
+    "medicine_type":1,
+    "medicine_material":"水解乳清蛋白粉"  
 }
 ```
 
@@ -332,7 +329,7 @@ ret 不为 0 表示失败， msg字段描述失败的原因
 ##### 请求消息
 
 ```
-GET  /medicines  HTTP/1.1
+GET  mgr/listmedicne  HTTP/1.1
 ```
 
 ##### 请求参数
@@ -383,7 +380,7 @@ http 响应消息体中， 数据以json格式存储，
         }
      ],
      "total":1
-        
+      
 }
 ```
 
@@ -469,7 +466,7 @@ http 响应消息 body 中， 数据以json格式存储，
             "identity":"821721******5"
         }
     ] , 
-    "total": 2           
+    "total": 2         
 }
 ```
 
@@ -544,7 +541,7 @@ http 响应消息 body 中， 数据以json格式存储，
             ]
         }
     ] , 
-    "total": 2           
+    "total": 2         
 }
 ```
 
