@@ -102,7 +102,8 @@ http响应消息体中，数据以json格式存储
 
 ```json
 {
-    "ret": 0
+    "ret": 0,
+    "msg":"操作成功"，
 }
 ```
 
@@ -148,12 +149,6 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
 }
 ```
 
-其中
-
-`action` 字段固定填写 `add_medicine` 表示添加一个药品
-
-`data` 字段中存储了要添加的药品的信息
-
 服务端接收到该请求后，应在系统中增加该药品。
 
 ##### 响应消息
@@ -172,7 +167,7 @@ http 响应消息 body 中， 数据以json格式存储，
 ```json
 {
     "ret": 0,
-    "id" : 1
+    "msg":"操作成功",
 }
 ```
 
@@ -183,7 +178,7 @@ ret 为 0 表示成功，id 为 添加药品的id号。
 ```json
 {
     "ret": 1,  
-    "msg": "药品名已经存在"
+    "msg": "药品名已经存在",
 }
 ```
 
@@ -204,29 +199,22 @@ http 请求消息体携带添加药品的信息，消息体的格式是json，�
 
 ```json
 {
-    "action":"update_medicine",
     "id":1,
-    "newdata":{
-        "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
-        "medicine_sn": "TY20180001",
-        "company_name": "杭州贝因美母婴营养品有限公司",
-        "medicine_valid_date":"xxxx-xx-xx",
-        "medicine_price": 218.00,
-        "medicine_stock": 99,
-        "medicine_specification": "400g",
-        "medicine_type":1,
-        "medicine_material":"水解乳清蛋白粉"  
-    }
+    "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
+    "medicine_sn": "TY20180001",
+    "company_name": "杭州贝因美母婴营养品有限公司",
+    "medicine_valid_date":"xxxx-xx-xx",
+    "medicine_price": 218.00,
+    "medicine_stock": 99,
+    "medicine_specification": "400g",
+    "medicine_type":1,
+    "medicine_material":"水解乳清蛋白粉"  
 }
 ```
 
 其中
 
-`action` 字段固定填写 `update_medicine` 表示修改一个药品的信息
-
 `id`表示要修改的药品 `id`
-
-`newdata` 字段中存储了要修改的药品的信息
 
 服务端接收到该请求后，应在系统中修改该药品的信息。
 
@@ -245,7 +233,8 @@ http 响应消息 body 中， 数据以json格式存储，
 
 ```json
 {
-    "ret": 0
+    "ret": 0,
+    "msg":"操作成功",
 }
 ```
 
@@ -256,7 +245,7 @@ ret 为 0 表示成功，id 为 添加药品的id号。
 ```json
 {
     "ret": 1,  
-    "msg": "修改失败"
+    "msg": "操作失败"，
 }
 ```
 
@@ -267,7 +256,7 @@ ret 为1表示失败， msg字段描述添加失败的原因
 ##### 请求消息
 
 ```http
-DELETE  /api/mgr/medicines  HTTP/1.1
+POST /mgr/deletemedicines  HTTP/1.1
 Content-Type:   application/json
 ```
 
@@ -279,14 +268,11 @@ http 请求消息 body 携带要删除药品的id
 
 ```json
 {
-    "action":"del_medicine",
     "id": 6
 }
 ```
 
 其中
-
-`action` 字段固定填写 `del_medicine` 表示删除一个药品
 
 `id` 字段为要删除的药品的id号
 
@@ -307,7 +293,8 @@ http 响应消息 body 中， 数据以json格式存储，
 
 ```json
 {
-    "ret": 0
+    "ret": 0,
+    "msg": 操作成功，
 }
 ```
 
@@ -318,7 +305,7 @@ ret 为 0 表示成功。
 ```json
 {
     "ret": 1,  
-    "msg": "删除失败"
+    "msg": "操作失败"
 }
 ```
 
@@ -336,16 +323,13 @@ GET  mgr/listmedicne  HTTP/1.1
 
 http 请求消息 url 中 需要携带如下参数，
 
-- action
-
-  必填项，填写值为 list_medicine
 - pagesize
 
   必填项，用来分页，确定每页最大记录条数
 - pagenum
 
   必填项，获取第几页的信息
-- keywords
+- keyword
 
   可选项， 里面包含多个过滤关键字，关键字之间用空格分开
 
@@ -365,7 +349,8 @@ http 响应消息体中， 数据以json格式存储，
 ```json
 {
     "ret": 0,
-    "retlist": [
+    "msg":"操作成功",
+    "data": [
         {
             "id":1,
             "medicine_name": "贝因美特殊医学用途婴儿无乳糖配方食品",
@@ -380,13 +365,13 @@ http 响应消息体中， 数据以json格式存储，
         }
      ],
      "total":1
-      
+  
 }
 ```
 
 ret 为0表示登录成功
 
-retlist 里面包含了当前请求页的药品信息列表
+data 里面包含了当前请求页的药品信息列表
 
 total 表示药品的数量
 
@@ -421,9 +406,6 @@ GET  /mgr/customers  HTTP/1.1
 
 http 请求消息 url 中 需要携带如下参数，
 
-- action
-
-  必填项，填写值为 list_customer
 - pagesize
 
   必填项，分页的 每页获取多少条记录
@@ -466,13 +448,13 @@ http 响应消息 body 中， 数据以json格式存储，
             "identity":"821721******5"
         }
     ] , 
-    "total": 2         
+    "total": 2       
 }
 ```
 
 ret 为0表示登录成功
 
-retlist 包含了当前请求页的客户信息列表。
+data 包含了当前请求页的客户信息列表。
 
 total 表示系统中所有用户的数量
 
@@ -502,9 +484,6 @@ GET  /mgr/orders  HTTP/1.1
 
 http 请求消息 url 中 需要携带如下参数，
 
-- action
-
-  必填项，填写值为 list_customer
 - pagesize
 
   必填项，分页的 每页获取多少条记录
@@ -531,7 +510,8 @@ http 响应消息 body 中， 数据以json格式存储，
 ```json
 {
     "ret": 0,
-    "retlist": [
+    "msg":"操作成功",
+    "data": [
         {
             "name":"张三",
             "created_time":"2022-10-16 15:04:05",
@@ -541,13 +521,13 @@ http 响应消息 body 中， 数据以json格式存储，
             ]
         }
     ] , 
-    "total": 2         
+    "total": 2   
 }
 ```
 
 ret 为0表示登录成功
 
-retlist 包含了当前请求页的订单信息列表。
+data 包含了当前请求页的订单信息列表。
 
 total 表示系统中所有订单的数量
 
