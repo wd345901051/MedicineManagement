@@ -1,2 +1,2 @@
 # MedicineManagement
-使用zinx实现的一个webserver服务，但其中使用的是关于websocket的技术。最终实现了一个建议的聊天平台。
+参考zinx框架，使用webSocket实现的一个webserver服务，但其中使用的是关于websocket的技术。最终实现了一个建议的聊天平台。
